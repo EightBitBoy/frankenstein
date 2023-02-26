@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  datasource:
+    build:
+      context: datasource/
+      target: frankenstein-datasource
+
+  database:
+    image: postgres:14.1
+    environment:
+      POSTGRES_USER: postgres_admin
+      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_DB: frankenstein
