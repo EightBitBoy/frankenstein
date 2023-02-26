@@ -8,3 +8,6 @@ RUN apt-get update && apt-get install -y \
 EXPOSE 3000
 
 FROM frankenstein-base as frankenstein-datasource
+RUN apt-get update && apt-get install -y \
+  nodejs \
+  npm
