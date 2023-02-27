@@ -7,7 +7,10 @@ RUN apt-get update && apt-get install -y \
   nano
 EXPOSE 3000
 
-FROM frankenstein-base as frankenstein-datasource
+FROM frankenstein-base as frankenstein-base-js
 RUN apt-get update && apt-get install -y \
   nodejs \
   npm
+
+FROM frankenstein-base-js as frankenstein-datasource
+COPY . /app

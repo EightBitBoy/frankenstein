@@ -5,6 +5,7 @@ services:
   datasource:
     build:
       context: datasource/
+      dockerfile: ../Dockerfile
       target: frankenstein-datasource
 
   database:
