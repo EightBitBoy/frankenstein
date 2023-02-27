@@ -2,11 +2,11 @@ version: '3'
 
 services:
 
-  datasource:
-    build:
-      context: datasource/
-      dockerfile: ../Dockerfile
-      target: frankenstein-datasource
+  # datasource:
+  #   build:
+  #     context: datasource-js/
+  #     dockerfile: ../Dockerfile
+  #     target: frankenstein-datasource
   
   datasource-py:
     build:

@@ -16,7 +16,7 @@ FROM frankenstein-base as frankenstein-base-py
 RUN apt-get update && apt-get install -y \
   python3-pip
 
-FROM frankenstein-base-js as frankenstein-datasource
+FROM frankenstein-base-js as frankenstein-datasource-js
 COPY . /app
 RUN npm install
 CMD npm start
