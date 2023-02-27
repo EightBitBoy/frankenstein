@@ -23,6 +23,7 @@ https://github.com/awesomedata/awesome-public-datasets
 https://ably.com/hub/
 
 ### Uncategorized
+https://memgraph.com/real-time-data-sources/reddit-json-api
 https://deepstream.io/
 https://ably.com/pricing
 https://pipedream.com/pricing
