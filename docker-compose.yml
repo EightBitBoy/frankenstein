@@ -7,6 +7,12 @@ services:
       context: datasource/
       dockerfile: ../Dockerfile
       target: frankenstein-datasource
+  
+  datasource-py:
+    build:
+      context: datasource-py/
+      dockerfile: ../Dockerfile
+      target: frankenstein-datasource-py
 
   database:
     image: postgres:14.1
