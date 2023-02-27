@@ -13,6 +13,8 @@ services:
       context: datasource-py/
       dockerfile: ../Dockerfile
       target: frankenstein-datasource-py
+    secrets:
+      - frankenstein-secrets
 
   # database:
   #   image: postgres:14.1
@@ -20,3 +22,7 @@ services:
   #     POSTGRES_USER: postgres_admin
   #     POSTGRES_PASSWORD: postgres_password
   #     POSTGRES_DB: frankenstein
+
+secrets:
+  frankenstein-secrets:
+    file: frankenstein-secrets.txt
