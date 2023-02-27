@@ -14,3 +14,5 @@ RUN apt-get update && apt-get install -y \
 
 FROM frankenstein-base-js as frankenstein-datasource
 COPY . /app
+RUN npm install
+CMD npm start

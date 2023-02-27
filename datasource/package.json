@@ -1,0 +1,8 @@
+{
+  "name": "datasource",
+  "version": "1.0.0",
+  "scripts": {
+	"start": "node datasource.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
