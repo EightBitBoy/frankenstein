@@ -14,8 +14,8 @@ services:
       dockerfile: ../Dockerfile
       target: frankenstein-datasource-py
     environment:
-      - CLIENT_ID: /run/secrets/reddit-client-id
-      - CLIENT_SECRET: /run/secrets/reddit-client-secret
+      CLIENT_ID: /run/secrets/reddit-client-id
+      CLIENT_SECRET: /run/secrets/reddit-client-secret
     secrets:
       - reddit-client-id
       - reddit-client-secret
