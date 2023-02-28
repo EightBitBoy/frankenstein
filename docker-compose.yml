@@ -13,12 +13,18 @@ services:
     secrets:
       - reddit-client-id
       - reddit-client-secret
+    depends_on:
+      zookeper:
+        condition: service_started
     
   kafka:
     image: bitnami/kafka:3.4.0
     environment:
       ALLOW_PLAINTEXT_LISTENER: yes
       KAFKA_CFG_ZOOKEEPER_CONNECT: zookeper:2181
+    depends_on:
+      zookeper:
+        condition: service_started
 
   zookeper:
     image: zookeeper:3.8.1
