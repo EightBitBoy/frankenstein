@@ -3,8 +3,10 @@ import logging
 import praw
 import os
 import sys
+import time
 
 print("Hello world!")
+time.sleep(5)
 
 logging.basicConfig(
     level=logging.INFO,
