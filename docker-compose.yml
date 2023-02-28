@@ -1,12 +1,6 @@
 version: '3'
 
 services:
-
-  # datasource:
-  #   build:
-  #     context: datasource-js/
-  #     dockerfile: ../Dockerfile
-  #     target: frankenstein-datasource
   
   datasource-py:
     build:
@@ -19,13 +13,17 @@ services:
     secrets:
       - reddit-client-id
       - reddit-client-secret
+    
+  kafka:
+    image: bitnami/kafka:3.4.0
+    environment:
+      ALLOW_PLAINTEXT_LISTENER: yes
+      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeper:2181
 
-  # database:
-  #   image: postgres:14.1
-  #   environment:
-  #     POSTGRES_USER: postgres_admin
-  #     POSTGRES_PASSWORD: postgres_password
-  #     POSTGRES_DB: frankenstein
+  zookeper:
+    image: zookeeper:3.8.1
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: yes
 
 secrets:
   reddit-client-id:
