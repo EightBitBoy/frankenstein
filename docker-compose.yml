@@ -15,8 +15,8 @@ services:
       - reddit-client-id
       - reddit-client-secret
     depends_on:
-      kafka:
-        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
     
   dozzle:
     container_name: dozzle
@@ -40,6 +40,7 @@ services:
       timeout: 2s
   
   zoonavigator:
+    container_name: zoonavigator
     image: elkozmon/zoonavigator:latest
     ports:
       - 3002:9000
@@ -85,6 +86,15 @@ services:
       LOGGING_LEVEL_COM_PROVECTUS: info
     depends_on:
       - kafka
+  
+  traefik:
+    image: traefik:v2.9
+    command: --api.insecure=true --providers.docker
+    ports:
+      - "3004:80"
+      - "3003:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 secrets:
   reddit-client-id:

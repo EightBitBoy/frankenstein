@@ -28,6 +28,7 @@ https://github.com/awesomedata/awesome-public-datasets
 https://ably.com/hub/
 
 ### Uncategorized
+https://doc.traefik.io/traefik/getting-started/quick-start/
 compose local url
 https://github.com/mermaid-js/mermaid
 https://github.com/veggiemonk/awesome-docker
