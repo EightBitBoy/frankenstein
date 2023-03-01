@@ -26,6 +26,7 @@ https://ably.com/hub/
 
 ### Uncategorized
 application performance management and monitoring (APM)
+https://bookkeeper.apache.org/
 https://github.com/provectus/kafka-ui/blob/master/documentation/compose/DOCKER_COMPOSE.md
 https://github.com/Consdata/kouncil/
 https://github.com/yahoo/CMAK
