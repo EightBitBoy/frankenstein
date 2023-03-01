@@ -3,6 +3,7 @@ version: '3'
 services:
   
   # datasource-py:
+      # container_name: datasource-py
     # build:
     #   context: datasource-py/
     #   dockerfile: ../Dockerfile
@@ -18,6 +19,7 @@ services:
   #       condition: service_started
     
   kafka:
+    container_name: kafka
     build:
       dockerfile: Dockerfile
       target: fs-kafka
@@ -35,6 +37,7 @@ services:
         condition: service_healthy
 
   zookeper:
+    container_name: zookeeper
     image: zookeeper:3.8.1
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
@@ -43,8 +46,16 @@ services:
       test: echo ruok | nc localhost 2181 || exit 1
       interval: 10s
       retries: 3
-      start_period: 5s
+      start_period: 3s
       timeout: 2s
+    
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:v4.8.1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 3005:8080
 
 secrets:
   reddit-client-id:
