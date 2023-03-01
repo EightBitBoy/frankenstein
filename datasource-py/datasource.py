@@ -37,5 +37,6 @@ reddit = praw.Reddit(
 # for submission in reddit.subreddit("askreddit").new(limit=3):
 #     print(submission.title)
 
+
 for comment in reddit.subreddit("askreddit").stream.comments():
     logging.info(comment.author)

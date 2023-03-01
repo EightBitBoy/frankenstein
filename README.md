@@ -8,11 +8,16 @@ An exploration in different technologies
 
 ## Technologies
 * Reading data from Reddit: https://github.com/praw-dev/praw
-Kafka
+* Distributing data: https://kafka.apache.org/
+
+
 https://github.com/Consdata/kouncil/
 https://github.com/provectus/kafka-ui
 
 ## Links
+
+### Kafka
+https://adw0rd.com/2020/11/25/kafka-healthcheck-by-topic/en/
 
 ### Data sources
 https://blog.pusher.com/pusher-realtime-reddit-api/
@@ -23,6 +28,7 @@ https://ably.com/hub/
 
 ### Uncategorized
 application performance management and monitoring (APM)
+https://github.com/yahoo/CMAK
 https://karaf.apache.org/
 https://zookeeper.apache.org/
 https://nifi.apache.org/

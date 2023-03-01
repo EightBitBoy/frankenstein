@@ -2,37 +2,52 @@ version: '3'
 
 services:
   
-  datasource-py:
-    build:
-      context: datasource-py/
-      dockerfile: ../Dockerfile
-      target: fs-datasource-py
-    environment:
-      CLIENT_ID_FILE: /run/secrets/reddit-client-id
-      CLIENT_SECRET_FILE: /run/secrets/reddit-client-secret
-    secrets:
-      - reddit-client-id
-      - reddit-client-secret
-    depends_on:
-      zookeper:
-        condition: service_started
+  # datasource-py:
+    # build:
+    #   context: datasource-py/
+    #   dockerfile: ../Dockerfile
+    #   target: fs-datasource-py
+  #   environment:
+  #     CLIENT_ID_FILE: /run/secrets/reddit-client-id
+  #     CLIENT_SECRET_FILE: /run/secrets/reddit-client-secret
+  #   secrets:
+  #     - reddit-client-id
+  #     - reddit-client-secret
+  #   depends_on:
+  #     zookeper:
+  #       condition: service_started
     
   kafka:
-    image: bitnami/kafka:3.4.0
+    build:
+      dockerfile: Dockerfile
+      target: fs-kafka
     environment:
       ALLOW_PLAINTEXT_LISTENER: yes
       KAFKA_CFG_ZOOKEEPER_CONNECT: zookeper:2181
     depends_on:
       zookeper:
-        condition: service_started
+        condition: service_healthy
 
   zookeper:
     image: zookeeper:3.8.1
     environment:
-      ALLOW_ANONYMOUS_LOGIN: yes
+      - ALLOW_ANONYMOUS_LOGIN=yes
+      - ZOO_4LW_COMMANDS_WHITELIST=*
+    healthcheck:
+      test: echo ruok | nc localhost 2181 || exit 1
+      interval: 15s
+      retries: 3
+      start_period: 5s
+      timeout: 2s
 
 secrets:
   reddit-client-id:
     file: secrets/reddit_client_id.txt
   reddit-client-secret:
     file: secrets/reddit_client_secret.txt
+
+
+# echo stat | nc localhost 2181
+# echo ruok | nc localhost 2181
+# echo mntr | nc localhost 2181
+# echo isro | nc localhost 2181
