@@ -28,11 +28,21 @@ https://github.com/awesomedata/awesome-public-datasets
 https://ably.com/hub/
 
 ### Uncategorized
+https://github.com/slimtoolkit/slim
+https://github.com/netdata/netdata to prometheus?
+https://theia-ide.org/
+https://github.com/nginx-proxy/nginx-proxy
+https://github.com/NginxProxyManager/nginx-proxy-manager
+https://www.consul.io/
+https://github.com/dokku/dokku
+https://github.com/stefanprodan/dockprom
+https://github.com/amerkurev/doku
+https://github.com/vegasbrianc/prometheus/
+https://github.com/dromara/hertzbeat
+https://github.com/moby/moby
 https://madewithlove.com/blog/software-engineering/get-rid-of-ports-in-your-docker-development-setup-with-traefik/
 https://github.com/dbushell/docker-traefik
 https://www.codementor.io/@slavko/unobtrusive-local-development-with-traefik2-docker-and-letsencrypt-15qw1ypoi8
-
-
 https://doc.traefik.io/traefik/getting-started/quick-start/
 compose local url
 https://github.com/mermaid-js/mermaid

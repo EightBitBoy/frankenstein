@@ -8,24 +8,22 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
-      - 3000:8080
+      - 3001:8080
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.dozzle.rule=Host(`dozzle.localhost`)"
-      - "traefik.http.routers.dozzle.entrypoints=http"
-  
-  traefik:
-    container_name: traefik
-    image: traefik:v2.9
-    command: --api.insecure=true --providers.docker
-    ports:
-      - "3004:80"
-      - "3003:8080"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - VIRTUAL_HOST=dozzle.local
+      - VIRTUAL_PORT=8001
 
-secrets:
-  reddit-client-id:
-    file: secrets/reddit_client_id.txt
-  reddit-client-secret:
-    file: secrets/reddit_client_secret.txt
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    ports:
+      - "3000:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  whoami:
+    image: jwilder/whoami
+    expose:
+      - "8000"
+    environment:
+      - VIRTUAL_HOST=whoami.local
+      - VIRTUAL_PORT=8000
