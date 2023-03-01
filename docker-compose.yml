@@ -65,7 +65,7 @@ services:
         condition: service_healthy
     command: "bash -c 'echo Waiting for Kafka to be ready... && \
                cub kafka-ready -b kafka:9092 1 30 && \
-               kafka-topics --create --topic comments --partitions 1 --replication-factor 1 --if-not-exists --bootstrap-server kafka:9092'"
+               kafka-topics --create --topic comments --if-not-exists --bootstrap-server kafka:9092'"
   
   kafka-ui:
     container_name: kafka-ui
