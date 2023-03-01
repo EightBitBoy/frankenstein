@@ -75,6 +75,7 @@ services:
     environment:
       KAFKA_CLUSTERS_0_NAME: frankenstein
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      LOGGING_LEVEL_COM_PROVECTUS: info
     depends_on:
       - kafka
 
