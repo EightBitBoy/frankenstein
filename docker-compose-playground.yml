@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+    
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:v4.8.1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 3000:8080
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dozzle.rule=Host(`dozzle.localhost`)"
+      - "traefik.http.routers.dozzle.entrypoints=http"
+  
+  traefik:
+    container_name: traefik
+    image: traefik:v2.9
+    command: --api.insecure=true --providers.docker
+    ports:
+      - "3004:80"
+      - "3003:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+secrets:
+  reddit-client-id:
+    file: secrets/reddit_client_id.txt
+  reddit-client-secret:
+    file: secrets/reddit_client_secret.txt
