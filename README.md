@@ -12,9 +12,6 @@ An exploration in different technologies
 * Distributing data: https://kafka.apache.org/
 * Visualizing Kafka: https://github.com/provectus/kafka-ui
 
-
-https://github.com/provectus/kafka-ui/blob/master/documentation/compose/DOCKER_COMPOSE.md
-
 ## Links
 
 ### Kafka
@@ -29,6 +26,7 @@ https://ably.com/hub/
 
 ### Uncategorized
 application performance management and monitoring (APM)
+https://github.com/provectus/kafka-ui/blob/master/documentation/compose/DOCKER_COMPOSE.md
 https://github.com/Consdata/kouncil/
 https://github.com/yahoo/CMAK
 https://karaf.apache.org/

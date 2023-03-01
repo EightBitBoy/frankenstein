@@ -38,6 +38,13 @@ services:
       retries: 3
       start_period: 3s
       timeout: 2s
+  
+  zoonavigator:
+    image: elkozmon/zoonavigator:latest
+    ports:
+      - 3002:9000
+    environment:
+      AUTO_CONNECT_CONNECTION_STRING: zookeeper:2181
 
   kafka:
     container_name: kafka
