@@ -28,6 +28,11 @@ https://github.com/awesomedata/awesome-public-datasets
 https://ably.com/hub/
 
 ### Uncategorized
+https://madewithlove.com/blog/software-engineering/get-rid-of-ports-in-your-docker-development-setup-with-traefik/
+https://github.com/dbushell/docker-traefik
+https://www.codementor.io/@slavko/unobtrusive-local-development-with-traefik2-docker-and-letsencrypt-15qw1ypoi8
+
+
 https://doc.traefik.io/traefik/getting-started/quick-start/
 compose local url
 https://github.com/mermaid-js/mermaid

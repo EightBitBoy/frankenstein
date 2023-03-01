@@ -25,6 +25,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 3000:8080
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dozzle.rule=Host(`dozzle.localhost`)"
+      - "traefik.http.routers.dozzle.entrypoints=http"
   
   zookeper:
     container_name: zookeeper
@@ -88,6 +92,7 @@ services:
       - kafka
   
   traefik:
+    container_name: traefik
     image: traefik:v2.9
     command: --api.insecure=true --providers.docker
     ports:
