@@ -24,6 +24,12 @@ services:
     environment:
       ALLOW_PLAINTEXT_LISTENER: yes
       KAFKA_CFG_ZOOKEEPER_CONNECT: zookeper:2181
+    healthcheck:
+      test: nc -z localhost 9092 || exit 1
+      interval: 15s
+      retries: 3
+      start_period: 5s
+      timeout: 2s
     depends_on:
       zookeper:
         condition: service_healthy
@@ -35,7 +41,7 @@ services:
       - ZOO_4LW_COMMANDS_WHITELIST=*
     healthcheck:
       test: echo ruok | nc localhost 2181 || exit 1
-      interval: 15s
+      interval: 10s
       retries: 3
       start_period: 5s
       timeout: 2s
