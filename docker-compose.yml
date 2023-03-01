@@ -2,21 +2,21 @@ version: '3'
 
 services:
   
-  # datasource-py:
-      # container_name: datasource-py
-    # build:
-    #   context: datasource-py/
-    #   dockerfile: ../Dockerfile
-    #   target: fs-datasource-py
-  #   environment:
-  #     CLIENT_ID_FILE: /run/secrets/reddit-client-id
-  #     CLIENT_SECRET_FILE: /run/secrets/reddit-client-secret
-  #   secrets:
-  #     - reddit-client-id
-  #     - reddit-client-secret
-  #   depends_on:
-  #     zookeper:
-  #       condition: service_started
+  datasource-py:
+    container_name: datasource-py
+    build:
+      context: datasource-py/
+      dockerfile: ../Dockerfile
+      target: fs-datasource-py
+    environment:
+      CLIENT_ID_FILE: /run/secrets/reddit-client-id
+      CLIENT_SECRET_FILE: /run/secrets/reddit-client-secret
+    secrets:
+      - reddit-client-id
+      - reddit-client-secret
+    depends_on:
+      kafka:
+        condition: service_healthy
     
   dozzle:
     container_name: dozzle
@@ -24,7 +24,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
-      - 3005:8080
+      - 3000:8080
   
   zookeper:
     container_name: zookeeper
@@ -56,7 +56,27 @@ services:
     depends_on:
       zookeper:
         condition: service_healthy
-    
+  
+  kafka-init:
+    container_name: kafka-init
+    image: confluentinc/cp-kafka:7.2.1
+    depends_on:
+      kafka:
+        condition: service_healthy
+    command: "bash -c 'echo Waiting for Kafka to be ready... && \
+               cub kafka-ready -b kafka:9092 1 30 && \
+               kafka-topics --create --topic comments --partitions 1 --replication-factor 1 --if-not-exists --bootstrap-server kafka:9092'"
+  
+  kafka-ui:
+    container_name: kafka-ui
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - 3001:8080
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+    depends_on:
+      - kafka
 
 secrets:
   reddit-client-id:

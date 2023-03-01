@@ -8,11 +8,12 @@ An exploration in different technologies
 
 ## Technologies
 * Reading data from Reddit: https://github.com/praw-dev/praw
+* Communicating with Kafka: https://github.com/dpkp/kafka-python
 * Distributing data: https://kafka.apache.org/
+* Visualizing Kafka: https://github.com/provectus/kafka-ui
 
 
-https://github.com/Consdata/kouncil/
-https://github.com/provectus/kafka-ui
+https://github.com/provectus/kafka-ui/blob/master/documentation/compose/DOCKER_COMPOSE.md
 
 ## Links
 
@@ -28,6 +29,7 @@ https://ably.com/hub/
 
 ### Uncategorized
 application performance management and monitoring (APM)
+https://github.com/Consdata/kouncil/
 https://github.com/yahoo/CMAK
 https://karaf.apache.org/
 https://zookeeper.apache.org/

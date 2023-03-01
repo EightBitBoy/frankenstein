@@ -27,8 +27,10 @@ RUN npm install
 CMD npm start
 
 FROM fs-py as fs-datasource-py-dependencies
-COPY ./requirements.txt /app/
-RUN pip3 install -r requirements.txt
+# COPY ./requirements.txt /app/
+RUN pip3 install praw
+RUN pip3 install kafka-python
+RUN pip3 install msgpack 
 
 FROM fs-datasource-py-dependencies as fs-datasource-py
 COPY . /app
