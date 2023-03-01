@@ -8,9 +8,12 @@ An exploration in different technologies
 
 ## Technologies
 * Reading data from Reddit: https://github.com/praw-dev/praw
+* Distributed synchronization and group services: https://github.com/apache/zookeeper
+* Zookeeper browser: https://github.com/elkozmon/zoonavigator
 * Communicating with Kafka: https://github.com/dpkp/kafka-python
-* Distributing data: https://kafka.apache.org/
+* Distributing data: https://github.com/apache/kafka
 * Visualizing Kafka: https://github.com/provectus/kafka-ui
+* View container logs in the browser: https://github.com/amir20/dozzle
 
 ## Links
 
@@ -25,8 +28,20 @@ https://github.com/awesomedata/awesome-public-datasets
 https://ably.com/hub/
 
 ### Uncategorized
+compose local url
+https://github.com/mermaid-js/mermaid
+https://github.com/veggiemonk/awesome-docker
+https://github.com/docker/awesome-compose
+https://github.com/amir20/echo/blob/main/Dockerfile
 application performance management and monitoring (APM)
-https://bookkeeper.apache.org/
+Kafka Connect
+Kafka Streams
+https://github.com/apache/openwhisk
+https://nginxproxymanager.com/
+https://nginxproxymanager.com/setup/
+https://github.com/containrrr/watchtower
+https://questdb.io/
+https://bookkeeper.apache.org/ do something with the log messages
 https://github.com/provectus/kafka-ui/blob/master/documentation/compose/DOCKER_COMPOSE.md
 https://github.com/Consdata/kouncil/
 https://github.com/yahoo/CMAK
@@ -52,3 +67,4 @@ https://github.com/anchore/syft
 https://github.com/GoogleContainerTools/distroless
 https://brooklyn.apache.org/
 https://cassandra.apache.org/_/index.html
+https://github.com/apache/echarts
