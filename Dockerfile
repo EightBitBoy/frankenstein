@@ -1,4 +1,6 @@
-# Debian Bullseye
+###############
+# Base images #
+###############
 FROM debian:11-slim as fs-base
 RUN mkdir /app
 WORKDIR /app
@@ -16,6 +18,9 @@ FROM fs-base as fs-py
 RUN apt-get update && apt-get install -y \
   python3-pip
 
+##############
+# Datasource #
+##############
 FROM fs-js as fs-datasource-js
 COPY . /app
 RUN npm install
@@ -29,6 +34,9 @@ FROM fs-datasource-py-dependencies as fs-datasource-py
 COPY . /app
 CMD python3 datasource.py
 
+#########
+# Kafka #
+#########
 FROM bitnami/kafka:3.4.0 as fs-kafka
 USER root
 RUN apt-get update && apt-get install -y \
