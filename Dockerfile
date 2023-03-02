@@ -9,11 +9,6 @@ RUN apt-get update && apt-get install -y \
   nano
 EXPOSE 3000
 
-FROM fs-base as fs-js
-RUN apt-get update && apt-get install -y \
-  nodejs \
-  npm
-
 FROM fs-base as fs-py
 RUN apt-get update && apt-get install -y \
   python3-pip
@@ -36,10 +31,8 @@ RUN npm install
 CMD npm start
 
 FROM fs-py as fs-datasource-py-dependencies
-# COPY ./requirements.txt /app/
-RUN pip3 install praw
-RUN pip3 install kafka-python
-RUN pip3 install msgpack 
+COPY ./requirements.txt /app/
+RUN pip3 install -r requirements.txt
 
 FROM fs-datasource-py-dependencies as fs-datasource-py
 COPY . /app
