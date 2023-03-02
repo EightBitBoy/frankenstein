@@ -28,6 +28,17 @@ https://github.com/awesomedata/awesome-public-datasets
 https://ably.com/hub/
 
 ### Uncategorized
+block chain stuff??? ethereum
+influx db
+apache storm
+https://nodered.org/
+https://github.com/crazy-max/diun
+https://github.com/louislam/uptime-kuma
+https://hub.docker.com/_/kapacitor
+https://github.com/influxdata/chronograf
+https://github.com/nats-io/nats-docker
+https://github.com/kong/kong
+https://github.com/pantsel/konga
 https://github.com/slimtoolkit/slim
 https://github.com/netdata/netdata to prometheus?
 https://theia-ide.org/
