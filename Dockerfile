@@ -18,6 +18,15 @@ FROM fs-base as fs-py
 RUN apt-get update && apt-get install -y \
   python3-pip
 
+###############
+# Development #
+###############
+
+FROM fs-base as fs-py-development
+RUN apt-get update && apt-get install -y \
+  python3-pip
+ENTRYPOINT ["tail", "-f", "/dev/null"]
+
 ##############
 # Datasource #
 ##############
