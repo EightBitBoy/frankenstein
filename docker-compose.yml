@@ -7,7 +7,7 @@ services:
     build:
       context: datasource-py/
       dockerfile: ../Dockerfile
-      target: fs-datasource-py
+      target: fs-py-dependencies
     environment:
       CLIENT_ID_FILE: /run/secrets/reddit-client-id
       CLIENT_SECRET_FILE: /run/secrets/reddit-client-secret

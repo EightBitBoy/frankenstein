@@ -1,7 +1,6 @@
 # stream_generator
 import json
 import logging
-import msgpack
 import praw
 import os
 import sys

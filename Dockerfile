@@ -13,29 +13,9 @@ FROM fs-base as fs-py
 RUN apt-get update && apt-get install -y \
   python3-pip
 
-###############
-# Development #
-###############
-
-FROM fs-base as fs-py-development
-RUN apt-get update && apt-get install -y \
-  python3-pip
-ENTRYPOINT ["tail", "-f", "/dev/null"]
-
-##############
-# Datasource #
-##############
-FROM fs-js as fs-datasource-js
+FROM fs-py as fs-py-dependencies
 COPY . /app
-RUN npm install
-CMD npm start
-
-FROM fs-py as fs-datasource-py-dependencies
-COPY ./requirements.txt /app/
 RUN pip3 install -r requirements.txt
-
-FROM fs-datasource-py-dependencies as fs-datasource-py
-COPY . /app
 CMD python3 datasource.py
 
 #########

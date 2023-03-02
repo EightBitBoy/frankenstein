@@ -2,6 +2,7 @@
 An exploration in different technologies
 
 ## Todo
+* For datasource: Remove dependency on Kafka, wait internally for service availability
 
 ## VS Code Extensions
 * Dev Containers
