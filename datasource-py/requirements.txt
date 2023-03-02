@@ -1,2 +1,2 @@
-praw
 kafka-python
+praw
