@@ -2,7 +2,9 @@
 An exploration in different technologies
 
 ## Todo
+* https://code.visualstudio.com/remote/advancedcontainers/overview#_changing-the-default-source-code-mount
 * For datasource: Remove dependency on Kafka, wait internally for service availability
+* Editorconfig in devcontainers
 
 ## VS Code Extensions
 * Dev Containers
