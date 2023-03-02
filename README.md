@@ -3,6 +3,11 @@ An exploration in different technologies
 
 ## Todo
 
+## VS Code Extensions
+* Dev Containers
+* Docker
+* EditorConfig
+
 ## Discovery
 * Libhunt
 
@@ -28,6 +33,7 @@ https://github.com/awesomedata/awesome-public-datasets
 https://ably.com/hub/
 
 ### Uncategorized
+https://github.com/earthly/earthly
 block chain stuff??? ethereum
 influx db
 apache storm
