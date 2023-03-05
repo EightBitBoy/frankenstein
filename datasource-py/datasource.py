@@ -5,7 +5,6 @@ import praw
 import os
 import sys
 import time
-
 from kafka import KafkaProducer
 
 print("Hello world!")
@@ -28,7 +27,9 @@ logging.basicConfig(
     ]
 )
 
-producer = KafkaProducer(bootstrap_servers='kafka:9092', value_serializer=lambda m: json.dumps(m).encode('utf8'))
+producer = KafkaProducer(
+  bootstrap_servers='kafka:9092',
+  value_serializer=lambda m: json.dumps(m).encode('utf8'))
 
 client_id_value = open(os.environ["CLIENT_ID_FILE"]).readline().rstrip()
 client_secret_value = open(os.environ["CLIENT_SECRET_FILE"]).readline().rstrip()
