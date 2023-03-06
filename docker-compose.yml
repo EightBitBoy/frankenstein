@@ -35,6 +35,16 @@ services:
     depends_on:
       - kafka
   
+  nlp:
+    container_name: nlp
+    build:
+      context: nlp/
+      dockerfile: ../Dockerfile
+      target: fs-py-dependencies
+    command: python3 textprocessor.py
+    depends_on:
+      - datasource-py
+  
   #########
   # Kafka #
   #########

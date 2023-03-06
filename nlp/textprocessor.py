@@ -5,10 +5,12 @@
 # python -m spacy download en_core_web_sm
 import json
 import spacy
+import time
 from kafka import KafkaProducer
 from kafka import KafkaConsumer
 
 print("Hello world!")
+time.sleep(5)
 
 consumer = KafkaConsumer(
   'comments',
