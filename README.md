@@ -1,6 +1,11 @@
 # frankenstein
 An exploration in different technologies
 
+## Components
+
+### Kafka
+* Explicit topic creation is not necessary, Kafka is configured to do so automatically once a message is sent to a topic!
+
 ## Todo
 * https://code.visualstudio.com/remote/advancedcontainers/overview#_changing-the-default-source-code-mount
 * For datasource: Remove dependency on Kafka, wait internally for service availability

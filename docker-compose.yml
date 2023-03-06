@@ -16,8 +16,7 @@ services:
       - reddit-client-id
       - reddit-client-secret
     depends_on:
-      kafka-init:
-        condition: service_completed_successfully
+      - kafka
     
   dozzle:
     container_name: dozzle
@@ -69,18 +68,18 @@ services:
       start_period: 5s
       timeout: 2s
     depends_on:
-      zookeper:
-        condition: service_healthy
-  
-  kafka-init:
-    container_name: kafka-init
-    image: confluentinc/cp-kafka:7.2.1
-    depends_on:
-      kafka:
-        condition: service_healthy
-    command: "bash -c 'echo Waiting for Kafka to be ready... && \
-               cub kafka-ready -b kafka:9092 1 30 && \
-               kafka-topics --create --topic comments --if-not-exists --bootstrap-server kafka:9092'"
+      - zookeper
+
+  # Currently not necessary, Kafka automatically creates topics when messages are received!
+  # kafka-init:
+  #   container_name: kafka-init
+  #   image: confluentinc/cp-kafka:7.2.1
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #   command: "bash -c 'echo Waiting for Kafka to be ready... && \
+  #              cub kafka-ready -b kafka:9092 1 30 && \
+  #              kafka-topics --create --topic comments --if-not-exists --bootstrap-server kafka:9092'"
   
   kafka-ui:
     container_name: kafka-ui
