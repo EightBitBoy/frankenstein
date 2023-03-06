@@ -90,3 +90,10 @@ secrets:
     file: secrets/reddit_client_id.txt
   reddit-client-secret:
     file: secrets/reddit_client_secret.txt
+
+############
+# Networks #
+############
+networks:
+  default:
+    name: frankenstein-net
