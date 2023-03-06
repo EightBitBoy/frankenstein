@@ -42,6 +42,7 @@ https://github.com/awesomedata/awesome-public-datasets
 https://ably.com/hub/
 
 ### Uncategorized
+https://github.com/VictoriaMetrics/VictoriaMetrics
 https://containers.dev/
 https://dev.to/mikecase/python-development-environment-in-a-docker-container-4hg8
 https://github.com/tiangolo/fastapi
