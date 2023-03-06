@@ -8,6 +8,7 @@ An exploration in different technologies
 
 ## Todo
 * https://code.visualstudio.com/remote/advancedcontainers/overview#_changing-the-default-source-code-mount
+* python logging
 * nlp create consumer group
 * nlp remove sleep, wait for broker availability
 
